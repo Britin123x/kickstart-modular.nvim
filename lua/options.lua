@@ -23,6 +23,12 @@ vim.schedule(function()
   vim.opt.clipboard = 'unnamedplus'
 end)
 
+-- Number of spaces in a single tab
+vim.opt.tabstop = 4
+-- Configures the same for auto-indenting and enables it.
+vim.opt.shiftwidth = 4
+vim.opt.autoindent = true
+
 -- Enable break indent
 vim.opt.breakindent = true
 
@@ -39,7 +45,7 @@ vim.opt.signcolumn = 'yes'
 -- Decrease update time
 vim.opt.updatetime = 250
 
--- Decrease mapped sequence wait time
+-- Time to wait in milliseconds before considering new key-string.
 vim.opt.timeoutlen = 300
 
 -- Configure how new splits should be opened
@@ -66,4 +72,6 @@ vim.opt.scrolloff = 10
 -- See `:help 'confirm'`
 vim.opt.confirm = true
 
--- vim: ts=2 sts=2 sw=2 et
+-- Configure new splits to be created below and to the right when made
+vim.opt.splitright = true
+vim.opt.splitbelow = true

@@ -94,16 +94,27 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
-require 'options'
+require("options")
 
 -- [[ Basic Keymaps ]]
-require 'keymaps'
+require("keymaps")
 
 -- [[ Install `lazy.nvim` plugin manager ]]
-require 'lazy-nvim'
+require("lazy-nvim")
 
--- Configure each plugin with it's own import clause for ease of configuration.
+----------------------------------------------------------------------------------------
+--
+-- MODULES
+-- This is where each module that is included within the config is included when launched. 
+-- If you don't want a plugin, comment the line here. Each folder in the lua folder is a module to a lazy.nvim plugin declaration.
 
-require("lazy").setup("themes.catppuccin")
--- The line beneath this is called `modeline`. See `:help modeline`
--- vim: ts=2 sts=2 sw=2 et
+-- UI 
+-- Telescope
+-- A plugin which acts as an extremely fast, extensible fuzzy-finder and is used extensibly throughout
+require("lazy").setup("interface.telescope")
+-- Neo-tree
+-- 
+
+
+-- Theme
+require("lazy").setup("interface.catppuccin")
