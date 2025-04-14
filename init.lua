@@ -107,14 +107,10 @@ require("lazy-nvim")
 -- MODULES
 -- This is where each module that is included within the config is included when launched. 
 -- If you don't want a plugin, comment the line here. Each folder in the lua folder is a module to a lazy.nvim plugin declaration.
-
--- UI 
--- Telescope
--- A plugin which acts as an extremely fast, extensible fuzzy-finder and is used extensibly throughout
-require("lazy").setup("interface.telescope")
--- Neo-tree
--- 
-
-
--- Theme
-require("lazy").setup("interface.catppuccin")
+require("lazy").setup({
+	{ import = "interface.catppuccin" },
+	{ import = "interface.telescope" },
+	{ import = "languages.lspconfig" },
+	{ import = "languages.cmp" },
+	{ import = "languages.debug" },
+})
