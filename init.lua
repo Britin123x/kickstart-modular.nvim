@@ -94,33 +94,41 @@ vim.g.maplocalleader = ' '
 vim.g.have_nerd_font = true
 
 -- [[ Setting options ]]
-require("options")
+require 'options'
 
 -- [[ Basic Keymaps ]]
-require("keymaps")
+require 'keymaps'
 
 -- [[ Install `lazy.nvim` plugin manager ]]
-require("lazy-nvim")
+require 'lazy-nvim'
 
 ----------------------------------------------------------------------------------------
 --
 -- MODULES
--- This is where each module that is included within the config is included when launched. 
+-- This is where each module that is included within the config is included when launched.
 -- If you don't want a plugin, comment the line here. Each folder in the lua folder is a module to a lazy.nvim plugin declaration.
-require("lazy").setup({
-	-- Interface and Graphical Plugins
-	{ import = "interface.catppuccin" },
-	{ import = "interface.telescope" },
-	{ import = "interface.indent-line" },
-	{ import = "interface.neo-tree" },
-	{ import = "interface.gitsigns" },
-	-- Language Plugins
-	{ import = "languages.lspconfig" },
-	{ import = "languages.cmp" },
-	{ import = "languages.debug" },
-	{ import = "languages.treesitter" },
-	{ import = "languages.lint" },
-	-- Tools
-	{ import = "tools.todo-comments" },
-	{ import = "tools.which-key" },
-})
+require('lazy').setup {
+  -- Interface and Graphical Plugins
+  { import = 'interface.catppuccin' },
+  { import = 'interface.telescope' },
+  { import = 'interface.indent-line' },
+  { import = 'interface.neo-tree' },
+  { import = 'interface.gitsigns' },
+  { import = 'interface.feline' },
+  -- Language Plugins
+  { import = 'languages.lspconfig' },
+  { import = 'languages.cmp' },
+  { import = 'languages.debug' },
+  { import = 'languages.treesitter' },
+  { import = 'languages.lint' },
+  { import = 'languages.autopairs' },
+  { import = 'languages.conform' },
+  { import = 'languages.latex.vimtex' },
+  { import = 'languages.markdown.markview' },
+  -- Tools
+  { import = 'tools.todo-comments' },
+  { import = 'tools.which-key' },
+  { import = 'tools.mini' },
+  { import = 'tools.img-clip' },
+  { import = 'tools.obsidian' },
+}

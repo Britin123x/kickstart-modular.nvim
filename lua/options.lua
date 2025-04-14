@@ -75,3 +75,5 @@ vim.opt.confirm = true
 -- Configure new splits to be created below and to the right when made
 vim.opt.splitright = true
 vim.opt.splitbelow = true
+-- Configure the allowed conceal level for Markdown
+vim.opt.conceallevel = 1
