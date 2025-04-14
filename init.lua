@@ -120,4 +120,6 @@ require("lazy").setup({
 	{ import = "languages.debug" },
 	{ import = "languages.treesitter" },
 	{ import = "languages.lint" },
+	-- Tools
+	{ import = "tools.todo-comments" },
 })
