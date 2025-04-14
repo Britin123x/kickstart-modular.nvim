@@ -20,7 +20,7 @@ return {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       -- Mason must be loaded before its dependents so we need to set it up here.
       -- NOTE: `opts = {}` is the same as calling `require('mason').setup({})`
-      { 'williamboman/mason.nvim', lazy=false, opts = {} },
+      { 'williamboman/mason.nvim', lazy = false, opts = {} },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
@@ -31,35 +31,38 @@ return {
       'hrsh7th/cmp-nvim-lsp',
     },
     keys = {
-      {"grn", vim.lsp.buf.rename, desc = "LSP: [R]e[n]ame"},
+      { 'grn', vim.lsp.buf.rename, desc = 'LSP: [R]e[n]ame' },
       -- Execute a code action, typically when your cursor is on top of an error.
-      {"gra", vim.lsp.buf.code_action, mode = { "n", "x" }, desc = "LSP: [G]oto Code [A]ction"},
+      { 'gra', vim.lsp.buf.code_action, mode = { 'n', 'x' }, desc = 'LSP: [G]oto Code [A]ction' },
       -- Find references for the word under your cursor.
-      {"grr", require('telescope.builtin').lsp_references, desc = "LSP: [G]oto Code [R]eferences"},
+      { 'grr', require('telescope.builtin').lsp_references, desc = 'LSP: [G]oto Code [R]eferences' },
       -- Jump to the implementation of the word under your cursor.
       --  Useful when your language has ways of declaring types without an actual implementation.
-      {"gri", require('telescope.builtin').lsp_implementations, desc = "LSP: [G]oto Code [I]mplementations"},
+      { 'gri', require('telescope.builtin').lsp_implementations, desc = 'LSP: [G]oto Code [I]mplementations' },
       -- Jump to the definition of the word under your cursor.
       --  This is where a variable was first declared, or where a function is defined, etc.
       --  To jump back, press <C-t>.
-      {"grd", require('telescope.builtin').lsp_definitions, desc = "LSP: [G]oto Code [d]efinition"},
+      { 'grd', require('telescope.builtin').lsp_definitions, desc = 'LSP: [G]oto Code [d]efinition' },
       -- WARN: This is not Goto Definition, this is Goto Declaration.
       --  For example, in C this would take you to the header.
-      {"grD", vim.lsp.buf.declaration, desc = "LSP: [G]oto Code [D]eclaration"},
+      { 'grD', vim.lsp.buf.declaration, desc = 'LSP: [G]oto Code [D]eclaration' },
       -- Fuzzy find all the symbols in your current document.
       --  Symbols are things like variables, functions, types, etc.
-      {"gO", require('telescope.builtin').lsp_document_symbols, desc = "LSP: [O]pen Document Symbols"},
+      { 'gO', require('telescope.builtin').lsp_document_symbols, desc = 'LSP: [O]pen Document Symbols' },
       -- Fuzzy find all the symbols in your current workspace.
       --  Similar to document symbols, except searches over your entire project.
-      {"gW", require('telescope.builtin').lsp_dynamic_workspace_symbols, desc = "LSP: Open [W]orkspace Symbols"},
+      { 'gW', require('telescope.builtin').lsp_dynamic_workspace_symbols, desc = 'LSP: Open [W]orkspace Symbols' },
       -- Jump to the type of the word under your cursor.
       --  Useful when you're not sure what type a variable is and you want to see
       --  the definition of its *type*, not where it was *defined*.
-      {"grt", require('telescope.builtin').lsp_type_definitions, desc = "[G]oto [T]ype Definition"},
-      {"<leader>th", function()
-        vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-        end, desc = "LSP: [T]oggle Inlay [H]ints"},
-
+      { 'grt', require('telescope.builtin').lsp_type_definitions, desc = '[G]oto [T]ype Definition' },
+      {
+        '<leader>th',
+        function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+        end,
+        desc = 'LSP: [T]oggle Inlay [H]ints',
+      },
     },
 
     config = function()
@@ -97,8 +100,6 @@ return {
 
         group = vim.api.nvim_create_augroup('kickstart-lsp-attach', { clear = true }),
         callback = function(event)
-
-
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
@@ -129,7 +130,6 @@ return {
           end
         end,
       })
-
 
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP specification.
@@ -179,8 +179,8 @@ return {
                 callSnippet = 'Replace',
               },
               -- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-              diagnostics = { 
-                disable = { 'missing-fields' } 
+              diagnostics = {
+                disable = { 'missing-fields' },
               },
             },
           },

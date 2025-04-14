@@ -1,7 +1,7 @@
 return {
   'OXY2DEV/markview.nvim',
   lazy = false,
-  enable = false,
+  enabled = false,
   opts = {
     markdown = {
       headings = require('markview.presets').headings.glow,

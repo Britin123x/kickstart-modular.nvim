@@ -50,5 +50,4 @@ return {
       update_debounce = 200,
     },
   },
-  init = function() end,
 }
