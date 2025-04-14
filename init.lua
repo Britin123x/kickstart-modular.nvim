@@ -122,4 +122,5 @@ require("lazy").setup({
 	{ import = "languages.lint" },
 	-- Tools
 	{ import = "tools.todo-comments" },
+	{ import = "tools.which-key" },
 })
