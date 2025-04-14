@@ -108,9 +108,16 @@ require("lazy-nvim")
 -- This is where each module that is included within the config is included when launched. 
 -- If you don't want a plugin, comment the line here. Each folder in the lua folder is a module to a lazy.nvim plugin declaration.
 require("lazy").setup({
+	-- Interface and Graphical Plugins
 	{ import = "interface.catppuccin" },
 	{ import = "interface.telescope" },
+	{ import = "interface.indent-line" },
+	{ import = "interface.neo-tree" },
+	{ import = "interface.gitsigns" },
+	-- Language Plugins
 	{ import = "languages.lspconfig" },
 	{ import = "languages.cmp" },
 	{ import = "languages.debug" },
+	{ import = "languages.treesitter" },
+	{ import = "languages.lint" },
 })

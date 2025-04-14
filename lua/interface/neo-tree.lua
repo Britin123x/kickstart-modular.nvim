@@ -10,10 +10,16 @@ return {
     'MunifTanjim/nui.nvim',
   },
   cmd = 'Neotree',
+lazy = false,
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
   opts = {
+	auto_clean_after_session_restore = true,
+	close_if_last_window = true,
+	enable_cursor_hijack = true,
+	indent_size = 4,
+	padding = 2,
     filesystem = {
       window = {
         mappings = {
@@ -21,5 +27,13 @@ return {
         },
       },
     },
+	event_handlers = {
+		{
+			event = "file_open_requested",
+			handler = function()
+					vim.cmd("Neotree close")
+			end
+		},
+	}
   },
 }

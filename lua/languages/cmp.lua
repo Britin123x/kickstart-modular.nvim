@@ -4,12 +4,11 @@ return {
     event = { "InsertEnter" },
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      { 
+      {
         'SirVer/ultisnips',
         keys = { 
           {"<leader>sn", UltiSnipsEdit, desc = "[S]nippets: Create [N]ew"}, 
         },
-        opts = { },
         init = function()
           vim.g.UltiSnipsSnippetDirectories = {"~/AppData/Local/nvim/snippets"}
         end,
@@ -23,13 +22,8 @@ return {
           documentation = function(snippet)
             return snippet.description .. "\n\n" .. snippet.value
           end,
-
         },
       },
-
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
-      --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -51,11 +45,11 @@ return {
           ["<C-n>"] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-p>"] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
           ["<C-Space>"] = cmp.mapping.complete(),
-          ["<CR>"] = LazyVim.cmp.confirm({ select = auto_select }),
-          ["<C-y>"] = LazyVim.cmp.confirm({ select = true }),
-          ["<S-CR>"] = LazyVim.cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+          ["<CR>"] = cmp.mapping.confirm({ select = auto_select }),
+          ["<C-y>"] = cmp.mapping.confirm({ select = true }),
+          ["<S-CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false}), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
           ["<C-CR>"] = function(fallback)
-            cmp.abort()
+            cmp.mapping.abort()
             fallback()
           end,
         ["<Tab>"] = cmp.mapping(
